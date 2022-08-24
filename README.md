@@ -1,3 +1,5 @@
+![Become the TypeScript wizard at your compant](./og-image.png)
+
 ## Quickstart
 
 ```sh
