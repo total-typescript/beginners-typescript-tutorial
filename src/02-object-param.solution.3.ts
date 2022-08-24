@@ -22,5 +22,5 @@ it("Should add the two numbers together", () => {
       first: 10,
       second: 20,
     }),
-  ).toEqual(20);
+  ).toEqual(30);
 });
