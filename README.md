@@ -10,8 +10,6 @@ yarn exercise 01
 
 ## How to take the course
 
-First, start up the [video on YouTube](TODO).
-
 You'll notice that the course is split into exercises. Each exercise is split into a `*.problem.ts` and a `*.solution.ts`.
 
 To take an exercise:
@@ -23,7 +21,7 @@ The `exercise` script will run TypeScript typechecks and a test suite on the exe
 
 This course encourages **active, exploratory learning**. In the video, I'll explain a problem, and **you'll be asked to try to find a solution**. To attempt a solution, you'll need to:
 
-1. Check out [Zod's docs](https://github.com/colinhacks/zod)
+1. Check out [TypeScript's docs](https://www.typescriptlang.org/docs/handbook/intro.html)
 2. Try to find something that looks relevant.
 3. Give it a go to see if it solves the problem.
 

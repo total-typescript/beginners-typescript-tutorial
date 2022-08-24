@@ -15,15 +15,15 @@ if (!exercise) {
 
 const allExercises = fs.readdirSync(srcPath);
 
-let suffix = ".problem.ts";
+let pathIndicator = ".problem.";
 
 if (process.env.SOLUTION) {
-  suffix = ".solution.ts";
+  pathIndicator = ".solution.";
 }
 
 const exercisePath = allExercises.find(
   (exercisePath) =>
-    exercisePath.startsWith(exercise) && exercisePath.endsWith(suffix),
+    exercisePath.startsWith(exercise) && exercisePath.includes(pathIndicator),
 );
 
 if (!exercisePath) {
@@ -35,12 +35,17 @@ const exerciseFile = path.resolve(srcPath, exercisePath);
 
 // One-liner for current directory
 chokidar.watch(exerciseFile).on("all", (event, path) => {
+  const fileContents = fs.readFileSync(exerciseFile, "utf8");
+
+  const containsVitest = fileContents.includes("vitest");
   try {
     console.clear();
-    console.log("Running tests...");
-    execSync(`vitest run ${exerciseFile} --passWithNoTests`, {
-      stdio: "inherit",
-    });
+    if (containsVitest) {
+      console.log("Running tests...");
+      execSync(`vitest run ${exerciseFile} --passWithNoTests`, {
+        stdio: "inherit",
+      });
+    }
     console.log("Checking types...");
     execSync(`tsc ${exerciseFile} --noEmit --strict`, {
       stdio: "inherit",
