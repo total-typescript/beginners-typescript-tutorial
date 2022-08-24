@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 0,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
@@ -14,5 +14,5 @@
   "editor.folding": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.inlineSuggest.enabled": true,
-  "xstate.targetEditorBaseUrl": "http://localhost:3000",
+  "xstate.targetEditorBaseUrl": "http://localhost:3000"
 }
