@@ -34,3 +34,17 @@ You can run `yarn solution 01` to run the tests and typechecking on the solution
 ## Acknowledgements
 
 Say thanks to Matt on [Twitter](https://twitter.com/mattpocockuk) or by joining his [Discord](https://discord.gg/8S5ujhfTB3). Consider signing up to his [Total TypeScript course](https://totaltypescript.com).
+
+## Reference
+
+### `yarn exercise 01`
+
+Alias: `yarn e 01`
+
+Run the corresponding `*.problem.ts` file.
+
+### `yarn solution 01`
+
+Alias: `yarn s 01`
+
+Run the corresponding `*.solution.ts` file. If there are multiple, it runs only the first one.
