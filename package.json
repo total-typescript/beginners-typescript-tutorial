@@ -12,14 +12,15 @@
     "vitest": "^0.21.1"
   },
   "scripts": {
-    "exercise": "node scripts/exercise.js",
+    "exercise": "npx ts-node scripts/exercise.ts",
     "e": "yarn exercise",
-    "solution": "SOLUTION=true node scripts/exercise.js",
+    "solution": "SOLUTION=true npx ts-node scripts/exercise.ts",
     "s": "yarn solution"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
     "express": "^4.18.1",
+    "ts-node": "^10.9.1",
     "zod": "^3.17.10"
   }
 }
