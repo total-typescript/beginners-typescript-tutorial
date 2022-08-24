@@ -1,6 +1,6 @@
 ## Things to add
 
-- any vs unknown
+- any vs unknown (use casting an error in a catch block as an example)
 - intersection types
 - classes
 - discriminated unions
