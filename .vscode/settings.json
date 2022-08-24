@@ -1,0 +1,18 @@
+{
+  "window.zoomLevel": 3,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "explorer.autoReveal": false,
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.visible": false,
+  "workbench.editor.showTabs": false,
+  "breadcrumbs.enabled": true,
+  "editor.minimap.enabled": false,
+  "workbench.sideBar.location": "right",
+  "git.enableSmartCommit": true,
+  "editor.lineNumbers": "off",
+  "editor.folding": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.inlineSuggest.enabled": true,
+  "xstate.targetEditorBaseUrl": "http://localhost:3000",
+}
