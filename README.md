@@ -1,7 +1,3 @@
-# Zod Crash Course
-
-This Zod crash course will give you everything you ever needed to know about [Zod](https://github.com/colinhacks/zod) - an amazing library for building type-safe AND runtime-safe applications.
-
 ## Quickstart
 
 ```sh
@@ -34,6 +30,8 @@ This course encourages **active, exploratory learning**. In the video, I'll expl
 You'll know if you've succeeded because the tests will pass.
 
 **If you succeeed**, or **if you get stuck**, unpause the video and check out the `*.solution.ts`. You can see if your solution is better or worse than mine!
+
+You can run `yarn solution 01` to run the tests and typechecking on the solution.
 
 ## Acknowledgements
 
