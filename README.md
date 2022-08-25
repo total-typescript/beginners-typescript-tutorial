@@ -8,6 +8,9 @@ yarn install
 
 # Starts the first exercise
 yarn exercise 01
+
+# Runs linting and tests on the solution
+yarn solution 01
 ```
 
 ## How to take the course
@@ -29,7 +32,7 @@ This course encourages **active, exploratory learning**. In the video, I'll expl
 
 You'll know if you've succeeded because the tests will pass.
 
-**If you succeeed**, or **if you get stuck**, unpause the video and check out the `*.solution.ts`. You can see if your solution is better or worse than mine!
+**If you succeed**, or **if you get stuck**, unpause the video and check out the `*.solution.ts`. You can see if your solution is better or worse than mine!
 
 You can run `yarn solution 01` to run the tests and typechecking on the solution.
 
