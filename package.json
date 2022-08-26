@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Matt Pocock <mattpocockvoice@gmail.com>",
-  "license": "MIT",
+  "license": "GPL",
   "devDependencies": {
     "@types/node": "^18.6.5",
     "chokidar": "^3.5.3",
