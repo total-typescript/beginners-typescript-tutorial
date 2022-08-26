@@ -1,4 +1,4 @@
-![Become the TypeScript wizard at your compant](./og-image.png)
+<a href="https://totaltypescript.com"><img src="./og-image.png" /></a>
 
 ## Quickstart
 
