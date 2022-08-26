@@ -6,7 +6,7 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
       throw new Error("Failure!");
     }
   } catch (e) {
-    if (typeof e === "object" && e && "message" in e) {
+    if (e instanceof Error) {
       return e.message;
     }
   }
