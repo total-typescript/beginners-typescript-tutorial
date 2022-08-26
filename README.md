@@ -13,6 +13,10 @@ yarn exercise 01
 yarn solution 01
 ```
 
+## Video Walkthrough
+
+I walked through the first few exercises on [VSCode's live stream](https://www.youtube.com/watch?v=p6dO9u0M7MQ)! The plan for these exercises is to develop them into a full workshop, and then bundle them into the full video course - [Total TypeScript](https://totaltypescript.com).
+
 ## How to take the course
 
 You'll notice that the course is split into exercises. Each exercise is split into a `*.problem.ts` and a `*.solution.ts`.
