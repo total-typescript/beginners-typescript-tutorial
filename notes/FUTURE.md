@@ -5,13 +5,17 @@
 - classes
 - interface extends
 - Omit, Partial, Pick, Required, Record (object-based utility types)
-- Using external libraries and @types
-- Using Map, Set
+- ReadonlyArray
+- typeof narrowing
+- instanceof narrowing
+- limits of typeof narrowing (unknown and object)
 
 ## Things NOT to add
 
 These things are out-of-scope, or will be included in other modules
 
+- Type predicates
+- Using external libraries and @types
 - discriminated unions
   - narrowing on discriminated unions
 - Template literals
