@@ -6,9 +6,7 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
       throw new Error("Failure!");
     }
   } catch (e) {
-    if (e instanceof Error) {
-      return e.message;
-    }
+    return (e as Error).message;
   }
 };
 
