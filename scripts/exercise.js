@@ -7,7 +7,7 @@ const srcPath = path.resolve(__dirname, "../src");
 const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
 
 const [, , exercise] = process.argv;
-
+// Changes src in directory to exercise
 if (!exercise) {
   console.log("Please specify an exercise");
   process.exit(1);
