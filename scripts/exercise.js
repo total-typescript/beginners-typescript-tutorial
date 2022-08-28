@@ -5,26 +5,26 @@ const chokidar = require("chokidar");
 
 let [, , exercise] = process.argv;
 
-let lessonIsCompleted = false;
-
-runExercise(exercise);
-
-function runExercise (exercise) {
-
 const srcPath = path.resolve(__dirname, "../src");
 const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
+const allExercises = fs.readdirSync(srcPath);
 
+let isSolution = process.env.SOLUTION ? process.env.SOLUTION : false;
+
+let lessonIsCompleted = false;
+
+runExercise(exercise, isSolution);
+
+function runExercise (exercise, isSolution) {
 
 if (!exercise) {
   console.log("Please specify an exercise");
   process.exit(1);
 }
 
-const allExercises = fs.readdirSync(srcPath);
-
 let pathIndicator = ".problem.";
 
-if (process.env.SOLUTION) {
+if (isSolution) {
   pathIndicator = ".solution.";
 }
 
@@ -58,7 +58,22 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
       stdio: "inherit",
     });
     console.log(`Typecheck complete. You finished the ${exercise} exercise!`);
-    console.log("\nPress 'n' to go to next exercise.");
+  
+    if (isEndOfTutorial(exercise, isSolution, pathIndicator)) {
+      console.log(`\n🎉 Cograts! You've reached to the end of this tutorial! 🎉  \n`);
+      process.exit(0);
+    }
+
+    if (isSolution) {
+      console.log(`\nPress 'n' to go to exercise ${buildNextExerciseNo(exercise)}.`);
+    } else {
+      console.log("\nPress 'n' to see solution.");
+    }
+
+    // if (exercise !== '01') {
+    //   console.log("\nOr press 'p' to go to previous step.")
+    // }
+
     lessonIsCompleted = true;
   } catch (e) {
     console.log("Failed. Try again!");
@@ -81,14 +96,46 @@ stdin.on('data', function (key) {
   }
 
   if (key === 'n' && lessonIsCompleted) {
-    exercise = parseInt(exercise) + 1;
-    exercise = exercise < 10 ? `0${exercise}` : exercise;
-    runExercise(exercise);
+    if (isSolution === false) {
+      isSolution = true
+    } else {
+      isSolution = false;
+      exercise = buildNextExerciseNo(exercise)
+    }
+    
+    runExercise(exercise, isSolution);
   }
   
-  if (key === 'p') {
-    exercise = parseInt(exercise) - 1;
-    exercise = exercise < 10 ? `0${exercise}` : exercise;
-    runExercise(exercise);
+  if (key === 'p' && exercise !== '01') {
+    if (isSolution === false) {
+      isSolution = true;
+      exercise = parseInt(exercise) - 1;
+      exercise = exercise < 10 ? `0${exercise}` : exercise;
+    } else {
+      isSolution = false;
+    }
+    
+    runExercise(exercise, isSolution);
   }
 });
+
+function buildNextExerciseNo(exercise) {
+  let exerciseCopy = exercise;
+  exerciseCopy = parseInt(exercise) + 1;
+  exerciseCopy = exerciseCopy < 10 ? `0${exerciseCopy}` : exerciseCopy;
+  return exerciseCopy;
+}
+
+function isEndOfTutorial(exercise, isSolution, pathIndicator) {
+
+  if (isSolution === false) return false;
+
+  const maybeNextExersiceNo = buildNextExerciseNo(exercise);
+
+  const maybeExersicePath = allExercises.find(
+    (exercisePath) =>
+      exercisePath.startsWith(maybeNextExersiceNo) && exercisePath.includes(pathIndicator),
+  );
+
+  return maybeExersicePath === undefined 
+}
