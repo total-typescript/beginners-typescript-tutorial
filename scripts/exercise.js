@@ -1,12 +1,14 @@
-const { execSync } = require("child_process");
+const {execSync} = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const chokidar = require("chokidar");
+const {buildNextExerciseNo, isEndOfTutorial} = require("./utils");
 
 const srcPath = path.resolve(__dirname, "../src");
 const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
 
 const [, , exercise] = process.argv;
+
 
 if (!exercise) {
   console.log("Please specify an exercise");
@@ -17,7 +19,7 @@ const allExercises = fs.readdirSync(srcPath);
 
 let pathIndicator = ".problem.";
 
-if (process.env.SOLUTION) {
+if (process.env.SOLUTION === 'true') {
   pathIndicator = ".solution.";
 }
 
@@ -50,8 +52,47 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
     execSync(`tsc ${exerciseFile} --noEmit --strict`, {
       stdio: "inherit",
     });
-    console.log("Typecheck complete. You finished the exercise!");
+    console.log(`Typecheck complete. You finished the ${exercise} exercise!`);
+
+    console.log('process.env.SOLUTION', process.env.SOLUTION);
+
+    if (process.send) {
+      const consoleNextMessage = process.env.SOLUTION === 'true' ?
+        `\nPress 'n' to go to exercise ${buildNextExerciseNo(exercise)}.` :
+        `\nPress 'n' to see solution.`;
+
+      const consolePrevMessage = (exercise !== '01') ?
+        "\nOr press 'p' to go to previous step." : ""
+
+      console.log('sending to parent', {
+        lessonIsCompleted: true,
+        isSolution: process.env.SOLUTION,
+        consoleNextMessage,
+        consolePrevMessage
+      });
+      process.send({
+        lessonIsCompleted: true,
+        isSolution: process.env.SOLUTION,
+        consoleNextMessage,
+        consolePrevMessage
+      });
+    }
   } catch (e) {
     console.log("Failed. Try again!");
+    console.log('process.env.SOLUTION', process.env.SOLUTION);
+    if (process.send) {
+      process.send({ lessonIsCompleted: false });
+    }
   }
 });
+
+process.on('message', (m) => {
+  if (m && m.kill) {
+    process.exit(0);
+  }
+});
+
+//if (process.send) {
+//  // Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+//  process.send({ foo: 'bar', baz: NaN });
+//}
