@@ -60,7 +60,7 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
     console.log(`Typecheck complete. You finished the ${exercise} exercise!`);
   
     if (isEndOfTutorial(exercise, isSolution, pathIndicator)) {
-      console.log(`\n🎉 Cograts! You've reached to the end of this tutorial! 🎉  \n`);
+      console.log(`\n🎉 Congrats! You've reached the end of this tutorial! 🎉  \n`);
       process.exit(0);
     }
 
