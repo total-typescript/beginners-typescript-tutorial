@@ -54,22 +54,14 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
     });
     console.log(`Typecheck complete. You finished the ${exercise} exercise!`);
 
-    console.log('process.env.SOLUTION', process.env.SOLUTION);
-
     if (process.send) {
       const consoleNextMessage = process.env.SOLUTION === 'true' ?
         `\nPress 'n' to go to exercise ${buildNextExerciseNo(exercise)}.` :
         `\nPress 'n' to see solution.`;
 
-      const consolePrevMessage = (exercise !== '01') ?
+      const consolePrevMessage = (exercise !== '01' | process.env.SOLUTION === 'true') ?
         "\nOr press 'p' to go to previous step." : ""
 
-      console.log('sending to parent', {
-        lessonIsCompleted: true,
-        isSolution: process.env.SOLUTION,
-        consoleNextMessage,
-        consolePrevMessage
-      });
       process.send({
         lessonIsCompleted: true,
         isSolution: process.env.SOLUTION,
@@ -79,9 +71,11 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
     }
   } catch (e) {
     console.log("Failed. Try again!");
-    console.log('process.env.SOLUTION', process.env.SOLUTION);
     if (process.send) {
-      process.send({ lessonIsCompleted: false });
+      process.send({ 
+        lessonIsCompleted: false, 
+        isSolution: process.env.SOLUTION,
+      });
     }
   }
 });
