@@ -4,25 +4,18 @@ const path = require("path");
 const chokidar = require("chokidar");
 const {buildNextExerciseNo, isEndOfTutorial} = require("./utils");
 
-let [, , exercise] = process.argv;
-
 const srcPath = path.resolve(__dirname, "../src");
 const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
-const allExercises = fs.readdirSync(srcPath);
 
-let isSolution = process.env.SOLUTION ? process.env.SOLUTION : false;
-
-let lessonIsCompleted = false;
-
-runExercise(exercise, isSolution);
-
-function runExercise (exercise, isSolution) {
+const [, , exercise] = process.argv;
 
 
 if (!exercise) {
   console.log("Please specify an exercise");
   process.exit(1);
 }
+
+const allExercises = fs.readdirSync(srcPath);
 
 let pathIndicator = ".problem.";
 
@@ -97,3 +90,4 @@ process.on('message', (m) => {
 //  // Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
 //  process.send({ foo: 'bar', baz: NaN });
 //}
+
