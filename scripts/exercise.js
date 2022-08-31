@@ -1,7 +1,8 @@
-const { execSync } = require("child_process");
+const {execSync} = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const chokidar = require("chokidar");
+const {buildNextExerciseNo, isEndOfTutorial} = require("./utils");
 
 let [, , exercise] = process.argv;
 
@@ -17,6 +18,7 @@ runExercise(exercise, isSolution);
 
 function runExercise (exercise, isSolution) {
 
+
 if (!exercise) {
   console.log("Please specify an exercise");
   process.exit(1);
@@ -24,7 +26,7 @@ if (!exercise) {
 
 let pathIndicator = ".problem.";
 
-if (isSolution) {
+if (process.env.SOLUTION === 'true') {
   pathIndicator = ".solution.";
 }
 
@@ -58,84 +60,40 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
       stdio: "inherit",
     });
     console.log(`Typecheck complete. You finished the ${exercise} exercise!`);
-  
-    if (isEndOfTutorial(exercise, isSolution, pathIndicator)) {
-      console.log(`\n🎉 Congrats! You've reached the end of this tutorial! 🎉  \n`);
-      process.exit(0);
+
+    if (process.send) {
+      const consoleNextMessage = process.env.SOLUTION === 'true' ?
+        `\nPress 'n' to go to exercise ${buildNextExerciseNo(exercise)}.` :
+        `\nPress 'n' to see solution.`;
+
+      const consolePrevMessage = (exercise !== '01' | process.env.SOLUTION === 'true') ?
+        "\nOr press 'p' to go to previous step." : ""
+
+      process.send({
+        lessonIsCompleted: true,
+        isSolution: process.env.SOLUTION,
+        consoleNextMessage,
+        consolePrevMessage
+      });
     }
-
-    if (isSolution) {
-      console.log(`\nPress 'n' to go to exercise ${buildNextExerciseNo(exercise)}.`);
-    } else {
-      console.log("\nPress 'n' to see solution.");
-    }
-
-    // if (exercise !== '01') {
-    //   console.log("\nOr press 'p' to go to previous step.")
-    // }
-
-    lessonIsCompleted = true;
   } catch (e) {
     console.log("Failed. Try again!");
-    lessonIsCompleted = false;
-  }
-});
-}
-
-
-// Most of this code is stolen from https://stackoverflow.com/a/12506613/4990125
-var stdin = process.stdin;
-stdin.setRawMode(true);
-stdin.resume();
-stdin.setEncoding('utf8');
-
-stdin.on('data', function (key) {
-  // ctrl-c ( end of text )
-  if (key === '\u0003') {
-    process.exit();
-  }
-
-  if (key === 'n' && lessonIsCompleted) {
-    if (isSolution === false) {
-      isSolution = true
-    } else {
-      isSolution = false;
-      exercise = buildNextExerciseNo(exercise)
+    if (process.send) {
+      process.send({ 
+        lessonIsCompleted: false, 
+        isSolution: process.env.SOLUTION,
+      });
     }
-    
-    runExercise(exercise, isSolution);
-  }
-  
-  if (key === 'p' && exercise !== '01') {
-    if (isSolution === false) {
-      isSolution = true;
-      exercise = parseInt(exercise) - 1;
-      exercise = exercise < 10 ? `0${exercise}` : exercise;
-    } else {
-      isSolution = false;
-    }
-    
-    runExercise(exercise, isSolution);
   }
 });
 
-function buildNextExerciseNo(exercise) {
-  let exerciseCopy = exercise;
-  exerciseCopy = parseInt(exercise) + 1;
-  exerciseCopy = exerciseCopy < 10 ? `0${exerciseCopy}` : exerciseCopy;
-  return exerciseCopy;
-}
+process.on('message', (m) => {
+  if (m && m.kill) {
+    process.exit(0);
+  }
+});
 
-function isEndOfTutorial(exercise, isSolution, pathIndicator) {
-
-  if (isSolution === false) return false;
-
-  const maybeNextExersiceNo = buildNextExerciseNo(exercise);
-
-  const maybeExersicePath = allExercises.find(
-    (exercisePath) =>
-      exercisePath.startsWith(maybeNextExersiceNo) && exercisePath.includes(pathIndicator),
-  );
-
-  return maybeExersicePath === undefined 
-}
+//if (process.send) {
+//  // Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+//  process.send({ foo: 'bar', baz: NaN });
+//}

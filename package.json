@@ -14,6 +14,7 @@
   "scripts": {
     "exercise": "node scripts/exercise.js",
     "e": "yarn exercise",
+    "tutorial": "node scripts/tutorial.js",
     "solution": "SOLUTION=true node scripts/exercise.js",
     "s": "yarn solution"
   },
