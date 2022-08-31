@@ -80,14 +80,11 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
   }
 });
 
+// This message comes from parent process.
 process.on('message', (m) => {
   if (m && m.kill) {
     process.exit(0);
   }
 });
 
-//if (process.send) {
-//  // Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
-//  process.send({ foo: 'bar', baz: NaN });
-//}
 
