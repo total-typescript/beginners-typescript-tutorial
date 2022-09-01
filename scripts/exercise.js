@@ -42,12 +42,12 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
     console.clear();
     if (containsVitest) {
       console.log("Running tests...");
-      execSync(`vitest run ${exerciseFile} --passWithNoTests`, {
+      execSync(`vitest run "${exerciseFile}" --passWithNoTests`, {
         stdio: "inherit",
       });
     }
     console.log("Checking types...");
-    execSync(`tsc ${exerciseFile} --noEmit --strict`, {
+    execSync(`tsc "${exerciseFile}" --noEmit --strict`, {
       stdio: "inherit",
     });
     console.log("Typecheck complete. You finished the exercise!");
