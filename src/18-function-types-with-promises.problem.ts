@@ -22,7 +22,7 @@ it("Should create the user, then get them", async () => {
   const user = await createThenGetUser(
     async () => "123",
     async (id) => ({
-      id: "123",
+      id,
       firstName: "Matt",
       lastName: "Pocock",
     }),
