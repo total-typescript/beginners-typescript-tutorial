@@ -15,7 +15,7 @@ if (!exercise) {
 
 const allExercises = fs.readdirSync(srcPath);
 
-let pathIndicator = ".problem.";
+let pathIndicator = ".practice.";
 
 if (process.env.SOLUTION) {
   pathIndicator = ".solution.";
