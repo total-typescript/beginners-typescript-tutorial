@@ -5,7 +5,7 @@
 Clone this repo or [open in Gitpod](https://gitpod.io/#https://github.com/total-typescript/beginners-typescript).
 
 ```sh
-# Installs all dependenciesG
+# Installs all dependencies
 npm install
 
 # Starts the first exercise
