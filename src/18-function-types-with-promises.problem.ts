@@ -1,5 +1,4 @@
 import { expect, it } from "vitest";
-import { Equal, Expect } from "./helpers/type-utils";
 
 interface User {
   id: string;
