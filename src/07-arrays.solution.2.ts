@@ -21,5 +21,9 @@ export const defaultUser: User = {
       id: 1,
       title: "How I eat so much cheese",
     },
+    {
+      id: 2,
+      title: "Why I don't eat more vegetables",
+    },
   ],
 };
