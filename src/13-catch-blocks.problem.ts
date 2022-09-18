@@ -5,7 +5,7 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
     if (state === "fail") {
       throw new Error("Failure!");
     }
-  } catch (e) {
+  } catch (e: any) { // Quand on veut pas un type checking sur une valeur
     return e.message;
   }
 };
