@@ -1,6 +1,8 @@
 import { expect, it } from "vitest";
 
-export const getName = (params: { first: string; last: string }) => {
+// On peut rendre une propriété d'objet optionelle avec le mot clé "?" en suffixe
+// Possible dans l'en-tête de la fonction et sur une déclaration d'interface (ou type)
+export const getName = (params: { first: string; last?: string }) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
   }
