@@ -1,7 +1,16 @@
 import { expect, it } from "vitest";
+import { string } from "zod";
 
 const createCache = () => {
-  const cache = {};
+  // https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type
+  // Record est un utilitaire qui construit un objet en spécifiant une clé et une valeur.
+  // Utile pour faire du mapping d'une propriété d'un type avec une valeur d'un autre type
+  const cache: Record<string, string> = {};
+
+  // Autre solution
+  // interface cache {
+  //   [id: string]: string;
+  // }
 
   const add = (id: string, value: string) => {
     cache[id] = value;
