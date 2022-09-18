@@ -3,7 +3,9 @@ interface User {
   firstName: string;
   lastName: string;
   role: "admin" | "user" | "super-admin";
-  posts: Post;
+  // Type tableau de Post
+  posts: Array<Post>;
+  // posts: Post[];
 }
 
 interface Post {
