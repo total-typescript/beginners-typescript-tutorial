@@ -9,10 +9,13 @@ interface LukeSkywalker {
   gender: string;
 }
 
-export const fetchLukeSkywalker = async (): LukeSkywalker => {
-  const data = await fetch("https://swapi.dev/api/people/1").then((res) => {
+// Typage d'une valeur retournée par une promise. Cette valeur est retournée par la fonction
+export const fetchLukeSkywalker = async (): Promise<LukeSkywalker> => {
+  // On peut également typer la variable ici
+  const data/* : LukeSkywalker */ = await fetch("https://swapi.dev/api/people/1").then((res) => {
     return res.json();
   });
 
-  return data;
+  // On peut typer directement dans le return
+  return data /* as LukeSkywalker */;
 };
