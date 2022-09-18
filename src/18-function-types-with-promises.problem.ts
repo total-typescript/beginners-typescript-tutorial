@@ -7,8 +7,8 @@ interface User {
 }
 
 const createThenGetUser = async (
-  createUser: unknown,
-  getUser: unknown,
+  createUser: () => Promise<string>, // typage fonction reçu en param qui retourne une Promise retournant un string
+  getUser: (id: string) => Promise<User>, // typage fonction reçu en param qui retourne une Promise retournant un User et qui a en param un string
 ): Promise<User> => {
   const userId: string = await createUser();
 
