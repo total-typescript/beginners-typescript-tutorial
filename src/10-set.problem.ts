@@ -1,7 +1,10 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "./helpers/type-utils";
 
-const guitarists = new Set();
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Set
+// Un objet Set permet de stocker un ensemble de valeurs uniques de n'importe quel type
+// Ici on type ce qu'on stocke
+const guitarists = new Set<string>();
 
 guitarists.add("Jimi Hendrix");
 guitarists.add("Eric Clapton");
