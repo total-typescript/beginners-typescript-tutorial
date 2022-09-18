@@ -3,7 +3,8 @@ import { Equal, Expect } from "./helpers/type-utils";
 /**
  * How do we type onFocusChange?
  */
-const addListener = (onFocusChange: unknown) => {
+// On peut typer une fonction reçu en param (ses params et son retour)
+const addListener = (onFocusChange: (isFocused: boolean) => void) => {
   window.addEventListener("focus", () => {
     onFocusChange(true);
   });
