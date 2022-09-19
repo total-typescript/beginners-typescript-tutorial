@@ -51,6 +51,7 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
       stdio: "inherit",
     });
     console.log("Typecheck complete. You finished the exercise!");
+    process.exit(0);
   } catch (e) {
     console.log("Failed. Try again!");
   }
