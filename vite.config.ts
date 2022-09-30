@@ -5,5 +5,6 @@ export default defineConfig({
     include: ["src/**/*.ts"],
     setupFiles: ["scripts/setup.ts"],
     passWithNoTests: true,
+    teardownTimeout: 5000,
   },
 });
