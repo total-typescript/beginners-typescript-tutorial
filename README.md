@@ -6,13 +6,13 @@ Clone this repo or [open in Gitpod](https://gitpod.io/#https://github.com/total-
 
 ```sh
 # Installs all dependencies
-yarn install
+npm install
 
 # Starts the first exercise
-yarn run exercise 01
+npm run exercise 01
 
 # Runs linting and tests on the solution
-yarn run solution 01
+npm run solution 01
 ```
 
 ## Video Walkthrough
@@ -26,7 +26,7 @@ You'll notice that the course is split into exercises. Each exercise is split in
 To take an exercise:
 
 1. Go into `*.problem.ts`
-2. Run `yarn run exercise 01`, where `01` is the number of the exercise you're on.
+2. Run `npm run exercise 01`, where `01` is the number of the exercise you're on.
 
 The `exercise` script will run TypeScript typechecks and a test suite on the exercise.
 
@@ -40,7 +40,7 @@ You'll know if you've succeeded because the tests will pass.
 
 **If you succeed**, or **if you get stuck**, unpause the video and check out the `*.solution.ts`. You can see if your solution is better or worse than mine!
 
-You can run `yarn run solution 01` to run the tests and typechecking on the solution.
+You can run `npm run solution 01` to run the tests and typechecking on the solution.
 
 ## Acknowledgements
 
@@ -48,14 +48,14 @@ Say thanks to Matt on [Twitter](https://twitter.com/mattpocockuk) or by joining 
 
 ## Reference
 
-### `yarn run exercise 01`
+### `npm run exercise 01`
 
-Alias: `yarn run e 01`
+Alias: `npm run e 01`
 
 Run the corresponding `*.problem.ts` file.
 
-### `yarn run solution 01`
+### `npm run solution 01`
 
-Alias: `yarn run s 01`
+Alias: `npm run s 01`
 
 Run the corresponding `*.solution.ts` file. If there are multiple, it runs only the first one.
