@@ -1,7 +1,12 @@
-import { expect, it } from "vitest";
+import { expect, it } from 'vitest';
+
+
+interface Cache {
+  [id: string]: string,
+}
 
 const createCache = () => {
-  const cache: Record<string, string> = {};
+  const cache: Cache = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
@@ -18,19 +23,19 @@ const createCache = () => {
   };
 };
 
-it("Should add values to the cache", () => {
+it('Should add values to the cache', () => {
   const cache = createCache();
 
-  cache.add("123", "Matt");
+  cache.add('123', 'Matt');
 
-  expect(cache.cache["123"]).toEqual("Matt");
+  expect(cache.cache['123']).toEqual('Matt');
 });
 
-it("Should remove values to the cache", () => {
+it('Should remove values to the cache', () => {
   const cache = createCache();
 
-  cache.add("123", "Matt");
-  cache.remove("123");
+  cache.add('123', 'Matt');
+  cache.remove('123');
 
-  expect(cache.cache["123"]).toEqual(undefined);
+  expect(cache.cache['123']).toEqual(undefined);
 });
