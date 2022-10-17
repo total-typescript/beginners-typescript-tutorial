@@ -22,8 +22,8 @@ newPackageJson.scripts = {
 };
 
 exerciseNames.forEach((exercise) => {
-  newPackageJson.scripts[`e-${exercise}`] = `yarn exercise ${exercise}`;
-  newPackageJson.scripts[`s-${exercise}`] = `yarn solution ${exercise}`;
+  newPackageJson.scripts[`e-${exercise}`] = `npm run exercise ${exercise}`;
+  newPackageJson.scripts[`s-${exercise}`] = `npm run solution ${exercise}`;
 });
 
 fs.writeFileSync(packageJsonPath, JSON.stringify(newPackageJson, null, 2));
