@@ -30,7 +30,7 @@ it("Should add values to the cache", () => {
   expect(cache.cache["123"]).toEqual("Matt");
 });
 
-it("Should remove values to the cache", () => {
+it("Should remove values from the cache", () => {
   const cache = createCache();
 
   cache.add("123", "Matt");
