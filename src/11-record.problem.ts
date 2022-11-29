@@ -1,7 +1,8 @@
 import { expect, it } from "vitest";
 
 const createCache = () => {
-  const cache = {};
+  // Assigning Dynamic Keys to an Object
+  const cache: Record<string, string> = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
