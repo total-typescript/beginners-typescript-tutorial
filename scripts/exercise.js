@@ -7,7 +7,7 @@ const srcPath = path.resolve(__dirname, "../src");
 const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
 
 const [, , exerciseInput] = process.argv;
-const isAutoNext = process.env.npm_config_auto_next === 'true'
+const isAutoNext = process.env.npm_config_auto_next === 'true';
 
 if (!exerciseInput) {
   console.log("Please specify an exercise");
@@ -64,7 +64,7 @@ function startExercise (exercise) {
 
       // get the next exercise number
       let nextExercise = Number(exercise) + 1;
-      nextExercise = nextExercise > 10 ? String(nextExercise) : `0${nextExercise}`;
+      nextExercise = nextExercise >= 10 ? String(nextExercise) : `0${nextExercise}`;
 
       if (findExercise(nextExercise)) {
         // close current file watch
