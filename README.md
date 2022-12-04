@@ -20,6 +20,9 @@ npm install
 # Starts the first exercise
 npm run exercise 01
 
+# Starts the first exercise, and auto start next when you finished the current one.
+npm run exercise 01 --auto-next
+
 # Runs linting and tests on the solution
 npm run solution 01
 ```
