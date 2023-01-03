@@ -19,6 +19,11 @@ interface Post {
  */
 const makeUser = ():User => {
  return {
+  id: 1,
+  firstName: 'string',
+  lastName: 'string',
+  role: 'admin',
+  posts:[]
    
   };
 };
