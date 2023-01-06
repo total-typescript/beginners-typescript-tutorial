@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 
 const createCache = () => {
-  const cache = {};
+  const cache: Record<string, string> = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
@@ -11,6 +11,7 @@ const createCache = () => {
     delete cache[id];
   };
 
+ 
   return {
     cache,
     add,
@@ -34,3 +35,6 @@ it("Should remove values from the cache", () => {
 
   expect(cache.cache["123"]).toEqual(undefined);
 });
+
+
+

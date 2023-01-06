@@ -34,3 +34,6 @@ it("Should remove values from the cache", () => {
 
   expect(cache.cache["123"]).toEqual(undefined);
 });
+
+
+console.log(2**3);
