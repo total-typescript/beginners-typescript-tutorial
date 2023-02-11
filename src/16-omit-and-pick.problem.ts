@@ -11,6 +11,12 @@ interface User {
  * firstName and lastName properties of User?
  */
 
-type MyType = unknown;
+type MyType = Omit<User, "id">;
+
+/**
+ * We can do this as well
+ * 
+ * type MyType = Pick<User, "firstName" | "lastName">;
+ */
 
 type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
