@@ -9,7 +9,7 @@
     "chokidar": "^3.5.3",
     "cross-env": "^7.0.3",
     "cross-fetch": "^3.1.5",
-    "typescript": "^4.8.3",
+    "typescript": "^5.0.3",
     "vitest": "^0.29.8"
   },
   "scripts": {
@@ -18,6 +18,7 @@
     "solution": "cross-env SOLUTION=true node scripts/exercise.js",
     "s": "npm run solution",
     "ci": "(cd scripts/tests && npx vitest run)",
+    "update-snapshots": "(cd scripts/tests && npx vitest run -u)",
     "prepare": "node scripts/prepare-stackblitz.js",
     "e-01": "npm run exercise -- 01",
     "s-01": "npm run solution -- 01",

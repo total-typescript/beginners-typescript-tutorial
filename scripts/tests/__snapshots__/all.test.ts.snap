@@ -28,15 +28,15 @@ src/11-record.problem.ts(26,10): error TS7053: Element implicitly has an 'any' t
   Property '123' does not exist on type '{}'.
 src/11-record.problem.ts(35,10): error TS7053: Element implicitly has an 'any' type because expression of type '\\"123\\"' can't be used to index type '{}'.
   Property '123' does not exist on type '{}'.
-src/13-catch-blocks.problem.ts(9,12): error TS2571: Object is of type 'unknown'.
-src/15-intersection.problem.ts(34,13): error TS2571: Object is of type 'unknown'.
+src/13-catch-blocks.problem.ts(9,12): error TS18046: 'e' is of type 'unknown'.
+src/15-intersection.problem.ts(34,13): error TS18046: 'userAndPosts' is of type 'unknown'.
 src/16-omit-and-pick.problem.ts(16,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/17-function-types.problem.ts(8,5): error TS2571: Object is of type 'unknown'.
-src/17-function-types.problem.ts(12,5): error TS2571: Object is of type 'unknown'.
+src/17-function-types.problem.ts(8,5): error TS18046: 'onFocusChange' is of type 'unknown'.
+src/17-function-types.problem.ts(12,5): error TS18046: 'onFocusChange' is of type 'unknown'.
 src/17-function-types.problem.ts(16,14): error TS7006: Parameter 'isFocused' implicitly has an 'any' type.
 src/17-function-types.problem.ts(19,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/18-function-types-with-promises.problem.ts(13,32): error TS2571: Object is of type 'unknown'.
-src/18-function-types-with-promises.problem.ts(15,22): error TS2571: Object is of type 'unknown'.
+src/18-function-types-with-promises.problem.ts(13,32): error TS18046: 'createUser' is of type 'unknown'.
+src/18-function-types-with-promises.problem.ts(15,22): error TS18046: 'getUser' is of type 'unknown'.
 src/18-function-types-with-promises.problem.ts(23,12): error TS7006: Parameter 'id' implicitly has an 'any' type.
 ,"
 `;
