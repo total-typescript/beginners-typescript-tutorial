@@ -709,19 +709,19 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "window is not defined",
+      "message": "No test found in suite src/17-function-types.problem.ts",
       "name": "src/17-function-types.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "window is not defined",
+      "message": "No test found in suite src/17-function-types.solution.1.ts",
       "name": "src/17-function-types.solution.1.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "window is not defined",
+      "message": "No test found in suite src/17-function-types.solution.2.ts",
       "name": "src/17-function-types.solution.2.ts",
       "status": "passed",
     },

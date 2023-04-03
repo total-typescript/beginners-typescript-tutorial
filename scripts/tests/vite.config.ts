@@ -5,5 +5,6 @@ export default defineConfig({
     setupFiles: ["../setup.ts"],
     passWithNoTests: true,
     teardownTimeout: 5000,
+    environment: "jsdom",
   },
 });
