@@ -1,4 +1,11 @@
-export const cleanVitestOutput = (result: string) => {
+import path from "path";
+
+export const cleanVitestOutput = (
+  result: string,
+  context: {
+    rootFolder: string;
+  },
+) => {
   const asJson: {
     startTime?: number;
     endTime?: number;
@@ -13,6 +20,7 @@ export const cleanVitestOutput = (result: string) => {
     numTotalTestSuites?: number;
     numTotalTests?: number;
     testResults: {
+      name: string;
       startTime?: number;
       endTime?: number;
       duration?: number;
@@ -39,6 +47,9 @@ export const cleanVitestOutput = (result: string) => {
     delete testResult.startTime;
     delete testResult.endTime;
     delete testResult.duration;
+
+    testResult.name = path.relative(context.rootFolder, testResult.name);
+
     testResult.assertionResults.forEach((assertionResult) => {
       delete assertionResult.duration;
     });

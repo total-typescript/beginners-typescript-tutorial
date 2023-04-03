@@ -34,6 +34,10 @@ describe("vitest", async () => {
       result = error.output.toString();
     }
 
-    expect(cleanVitestOutput(result)).toMatchSnapshot();
+    expect(
+      cleanVitestOutput(result, {
+        rootFolder,
+      }),
+    ).toMatchSnapshot();
   });
 });
