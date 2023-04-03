@@ -9,9 +9,10 @@
     "chokidar": "^3.5.3",
     "cross-env": "^7.0.3",
     "cross-fetch": "^3.1.5",
+    "jsdom": "^21.1.1",
     "typescript": "^5.0.3",
-    "vitest": "^0.29.8",
-    "jsdom": "^21.1.1"
+    "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^0.29.8"
   },
   "scripts": {
     "exercise": "node scripts/exercise.js",

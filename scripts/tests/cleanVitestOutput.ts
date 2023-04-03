@@ -55,5 +55,7 @@ export const cleanVitestOutput = (
     });
   });
 
+  asJson.testResults.sort((a, b) => a.name.localeCompare(b.name));
+
   return asJson;
 };
