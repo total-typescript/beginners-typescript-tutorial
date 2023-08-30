@@ -26,7 +26,7 @@ describe("vitest", async () => {
     let result: string;
 
     try {
-      result = execSync(`npx vitest run --reporter=json`, {
+      result = execSync(`npx vitest run --reporter=json --single-thread`, {
         cwd: rootFolder,
         stdio: "pipe",
       }).toString();
