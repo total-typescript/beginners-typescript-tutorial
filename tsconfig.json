@@ -5,7 +5,7 @@
     ],
     "target": "es2020",
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
