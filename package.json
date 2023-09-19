@@ -18,8 +18,6 @@
     "e": "npm run exercise",
     "solution": "tt-cli run --solution",
     "s": "npm run solution",
-    "ci": "(cd scripts/tests && npx vitest run)",
-    "update-snapshots": "(cd scripts/tests && npx vitest run -u)",
     "prepare": "tt-cli prepare-stackblitz",
     "e-01": "tt-cli run 01",
     "s-01": "tt-cli run 01 --solution",
