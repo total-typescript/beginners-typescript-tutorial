@@ -3,7 +3,7 @@ interface User {
   firstName: string;
   lastName: string;
   role: "admin" | "user" | "super-admin";
-  posts: Post;
+  posts: Array<Post>;
 }
 
 interface Post {
@@ -25,5 +25,6 @@ export const defaultUser: User = {
       id: 2,
       title: "Why I don't eat more vegetables",
     },
+    { id: 6, title: '' }
   ],
 };
