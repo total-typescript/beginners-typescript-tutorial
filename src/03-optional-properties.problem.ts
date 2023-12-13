@@ -1,6 +1,8 @@
 import { expect, it } from "vitest";
 
-export const getName = (params: { first: string; last: string }) => {
+type GetNameParams = ({ first: string, last?: string });
+
+export const getName = (params: GetNameParams) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
   }
