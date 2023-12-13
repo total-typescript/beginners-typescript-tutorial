@@ -1,7 +1,11 @@
 import { expect, it } from "vitest";
 
+interface Cashe {
+  [id: string]: string;
+}
+
 const createCache = () => {
-  const cache = {};
+  const cache: Cashe = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
@@ -34,3 +38,16 @@ it("Should remove values from the cache", () => {
 
   expect(cache.cache["123"]).toEqual(undefined);
 });
+
+const hache = createCache();
+hache.add("123", "Matt");
+hache.add("Andrew");
+hache.add('1');
+
+console.log('RESULT1:', hache)
+
+hache.remove('123')
+hache.add('Andrew', '1');
+hache.add('123', 'Andrew');
+
+console.log('RESULT2:', hache)
