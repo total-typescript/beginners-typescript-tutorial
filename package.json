@@ -1,6 +1,7 @@
 {
   "name": "beginners-typescript",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "author": "Matt Pocock <mattpocockvoice@gmail.com>",
   "license": "GPL-3.0",
@@ -9,9 +10,9 @@
     "@types/node": "^18.6.5",
     "cross-fetch": "^3.1.5",
     "jsdom": "^21.1.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "vite-tsconfig-paths": "^4.0.7",
-    "vitest": "^1.0.2"
+    "vitest": "^1.6.0"
   },
   "scripts": {
     "exercise": "tt-cli run",
