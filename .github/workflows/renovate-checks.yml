@@ -5,7 +5,7 @@ on:
       - "renovate/**"
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Main
@@ -28,4 +28,4 @@ jobs:
       - name: Copy Snapshot To Branch
         run: cp main/snap.md branch/snap.md
       - name: Compare Snapshot In Branch
-        run: (cd branch && npx tt-cli compare-snapshot ./snap.md)
+        run: (cd branch && npx tt-cli compare-snapshot)
