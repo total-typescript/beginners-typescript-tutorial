@@ -1,0 +1,31 @@
+name: Renovate Checks
+on:
+  push:
+    branches:
+      - "renovate/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout Branch
+        uses: actions/checkout@v4
+        with:
+          path: branch
+
+      - name: Install Dependencies in Main
+        run: (cd main && npm install)
+      - name: Install Dependencies in Branch
+        run: (cd branch && npm install)
+      - name: Create Snapshot In Main
+        run: (cd main && npx tt-cli take-snapshot ./snap.md)
+      - name: Copy Snapshot To Branch
+        run: cp main/snap.md branch/snap.md
+      - name: Compare Snapshot In Branch
+        run: (cd branch && npx tt-cli compare-snapshot)
