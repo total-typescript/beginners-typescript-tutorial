@@ -7,7 +7,7 @@
       "excludePackagePatterns": [
         "typescript",
         "vitest",
-        "@total-typescript/cli"
+        "@total-typescript/exercise-cli"
       ],
       "enabled": false
     }
