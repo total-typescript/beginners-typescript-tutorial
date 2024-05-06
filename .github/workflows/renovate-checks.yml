@@ -28,4 +28,4 @@ jobs:
       - name: Copy Snapshot To Branch
         run: cp main/snap.md branch/snap.md
       - name: Compare Snapshot In Branch
-        run: (cd branch && npx tt-cli compare-snapshot)
+        run: (cd branch && npx tt-cli compare-snapshot ./snap.md)
