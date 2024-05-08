@@ -12,20 +12,23 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          path: main
+          path: repo
 
+      - name: Install Dependencies in Main
+        run: (cd repo && npm install)
+      - name: Create Snapshot In Main
+        run: (cd repo && npx tt-cli take-snapshot ./snap.md)
+      - name: Copy Snapshot To Outer Directory
+        run: mv repo/snap.md ./snap.md
+      - name: Delete Main Directory
+        run: rm -rf repo
       - name: Checkout Branch
         uses: actions/checkout@v4
         with:
-          path: branch
-
-      - name: Install Dependencies in Main
-        run: (cd main && npm install)
+          path: repo
       - name: Install Dependencies in Branch
-        run: (cd branch && npm install)
-      - name: Create Snapshot In Main
-        run: (cd main && npx tt-cli take-snapshot ./snap.md)
-      - name: Copy Snapshot To Branch
-        run: cp main/snap.md branch/snap.md
+        run: (cd repo && npm install)
+      - name: Move Snapshot To Branch
+        run: mv ./snap.md repo/snap.md
       - name: Compare Snapshot In Branch
-        run: (cd branch && npx tt-cli compare-snapshot ./snap.md)
+        run: (cd repo && npx tt-cli compare-snapshot ./snap.md)
