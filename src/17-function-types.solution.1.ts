@@ -1,4 +1,4 @@
-import { Equal, Expect } from "./helpers/type-utils";
+import type { Equal, Expect } from "./helpers/type-utils";
 
 /**
  * How do we type onFocusChange?
