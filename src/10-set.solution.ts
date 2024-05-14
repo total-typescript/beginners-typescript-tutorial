@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import type { Equal, Expect } from "./helpers/type-utils";
+import { Equal, Expect } from "./helpers/type-utils";
 
 const guitarists = new Set<string>();
 

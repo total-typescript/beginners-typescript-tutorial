@@ -1,7 +1,8 @@
 {
   "extends": "@total-typescript/tsconfig/bundler",
   "compilerOptions": {
-    "noUncheckedIndexedAccess": false
+    "noUncheckedIndexedAccess": false,
+    "verbatimModuleSyntax": false
   },
   "include": [
     "src"

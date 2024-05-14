@@ -1,4 +1,4 @@
-import type { Equal, Expect } from "./helpers/type-utils";
+import { Equal, Expect } from "./helpers/type-utils";
 
 interface User {
   id: string;

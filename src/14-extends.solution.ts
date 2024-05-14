@@ -1,4 +1,4 @@
-import type { Equal, Expect } from "./helpers/type-utils";
+import { Equal, Expect } from "./helpers/type-utils";
 
 /**
  * Here, the id property is shared between all three
