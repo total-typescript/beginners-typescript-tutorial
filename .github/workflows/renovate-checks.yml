@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "renovate/**"
+      - "ci-check/**"
 
 jobs:
   build:

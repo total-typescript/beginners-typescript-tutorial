@@ -1,17 +1,8 @@
 {
+  "extends": "@total-typescript/tsconfig/bundler",
   "compilerOptions": {
-    "types": [
-      "vitest/importMeta"
-    ],
-    "target": "es2020",
-    "module": "ES2022",
-    "moduleResolution": "Bundler",
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
+    "noUncheckedIndexedAccess": false,
+    "verbatimModuleSyntax": false
   },
   "include": [
     "src"
