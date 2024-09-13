@@ -1,3 +1,6 @@
 node_modules
-.vscode
-*.temp.json
+tsconfig.temp.json
+dist
+*.tsbuildinfo
+*.prompt.*
+.vscode/*.code-snippets

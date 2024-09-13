@@ -1,0 +1,8 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "github.copilot.enable": {
+    "*": false,
+  },
+  "explorer.sortOrder": "mixed",
+}

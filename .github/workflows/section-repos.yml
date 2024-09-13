@@ -1,0 +1,24 @@
+name: Create Section Repos
+on:
+  push:
+    branches:
+      - "main"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - run: git config --global user.email "total-typescript@bot.com"
+      - run: git config --global user.name "Total TypeScript Bot"
+      - run: npx @total-typescript/exercise-cli@latest create-section-repos
+    env:
+      GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
