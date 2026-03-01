@@ -12,7 +12,7 @@
     "cross-fetch": "^3.1.5",
     "jsdom": "^25.0.0",
     "typescript": "^5.4.5",
-    "vite-tsconfig-paths": "^5.0.0",
+    "vite-tsconfig-paths": "^6.0.0",
     "vitest": "^2.0.0"
   },
   "scripts": {
