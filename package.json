@@ -16,6 +16,7 @@
     "vitest": "^2.0.0"
   },
   "scripts": {
+    "watch": "node scripts/watch-exercises.mjs",
     "exercise": "tt-cli run",
     "e": "npm run exercise",
     "solution": "tt-cli run --solution",

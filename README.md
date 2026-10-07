@@ -15,6 +15,9 @@ npm install
 
 # Asks you which exercise you'd like to run, and runs it
 npm run exercise
+
+# Alternatively, runs an exercise's tests whenever you save it
+npm run watch
 ```
 
 ## How to take the course
@@ -41,6 +44,12 @@ You'll know if you've succeeded because the tests will pass.
 Say thanks to Matt on [Twitter](https://twitter.com/mattpocockuk) or by joining his [Discord](https://discord.gg/8S5ujhfTB3). Consider signing up to his [Total TypeScript course](https://totaltypescript.com).
 
 ## Reference
+
+### `npm run watch`
+
+An alternative to `npm run exercise`. Stays running and tests only the exercise
+whose `.problem.ts` file you save, so you can switch exercises without restarting
+the command. No tests run until you save a file.
 
 ### `npm run exercise`
 
